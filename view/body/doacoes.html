@@ -1,0 +1,316 @@
+  
+  <!-- Start main-content -->
+  <div class="main-content">
+
+    <!-- Section: inner-header -->
+    <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-stellar-background-ratio="0.5" data-bg-img="images/_doacoes/parallax.jpg">
+      <div class="container pt-100 pb-50">
+        <!-- Section Content -->
+        <div class="section-content pt-100">
+          <div class="row"> 
+            <div class="col-md-12">
+              <h3 class="title text-white">Doação</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: DonetForm & Testimonials -->
+    <section>
+      <div class="container">
+        <div class="section-content">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <h3 class="mt-0 line-bottom"><span class="font-weight-300">Faça uma</span> doação agora<span class="font-weight-300">!</span></h3>
+
+                <!-- ===== START: Paypal Both Onetime/Recurring Form ===== -->
+                <form id="popup_paypal_donate_form_onetime_recurring">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <img src="images/payment-card-logo-sm.png" alt="">
+                      <div class="form-group mt-20 mb-20">
+                        <label><strong>Tipo de pagamento</strong></label> <br>
+                        <label class="radio-inline">
+                          <input type="radio" checked="" value="one_time" name="payment_type"> 
+                          Uma vez
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" value="recurring" name="payment_type"> 
+                          Recorrente
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12" id="donation_type_choice">
+                      <div class="form-group mb-20">
+                        <label><strong>Tipo de doação</strong></label>
+                        <div class="radio mt-5">
+                          <label class="radio-inline">
+                            <input type="radio" value="D" name="t3" checked="">
+                            Diário</label>
+                          <label class="radio-inline">
+                            <input type="radio" value="W" name="t3">
+                            Semanal</label>
+                          <label class="radio-inline">
+                            <input type="radio" value="M" name="t3">
+                            Mensal</label>
+                          <label class="radio-inline">
+                            <input type="radio" value="Y" name="t3">
+                            Anual</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <div class="form-group mb-20">
+                        <label><strong>Gostaria de doar para:</strong></label>
+                        <select name="item_name" class="form-control">
+                          <option value="Arrecadação de Fundos">Arrecadação de Fundos</option>
+                          <!--<option value="Child Camps">Child Camps</option>
+                          <option value="Clean Water for Life">Clean Water for Life</option>
+                          <option value="Campaign for Child Poverty">Campaign for Child Poverty</option>-->
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <div class="form-group mb-20">
+                        <label><strong>Moeda Corrente</strong></label>
+                        <select name="currency_code" class="form-control">
+                          <option value="">Selecione a moeda</option>
+                          <option value="BRL" selected="selected">BRL - Real Brasileiro</option>
+                            <option value="USD">USD - U.S. Dollars</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                      <div class="form-group mb-20">
+                        <label><strong>Quanto gostaria de doar?</strong></label>
+                        <div class="radio mt-5">
+                          <label class="radio-inline">
+                            <input type="radio" name="amount" value="20">
+                            $20</label>
+                          <label class="radio-inline">
+                            <input type="radio" name="amount" value="50">
+                            $50</label>
+                          <label class="radio-inline">
+                            <input type="radio" name="amount" value="100">
+                            $100</label>
+                          <label class="radio-inline">
+                            <input type="radio" name="amount" value="200">
+                            $200</label>
+                          <label class="radio-inline">
+                            <input type="radio" name="amount" value="500">
+                            $500</label>
+                          <label class="radio-inline">
+                            <input type="radio" name="amount" value="other">
+                            Outro valor</label>
+                        </div>
+                        <div id="custom_other_amount">
+                          <label><strong>Digite o valor:</strong></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-flat btn-dark btn-theme-colored mt-10 pl-30 pr-30" data-loading-text="Aguarde...">Doar Agora</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                
+                <!-- Script for Donation Form Custom Amount -->
+                <script type="text/javascript">
+                  $(document).ready(function(e) {
+                    var $donation_form = $("#popup_paypal_donate_form_onetime_recurring");
+                    //toggle custom amount
+                    var $custom_other_amount = $donation_form.find("#custom_other_amount");
+                    $custom_other_amount.hide();
+                    $donation_form.find("[name='amount']").change(function() {
+                        var $this = $(this);
+                        if ($this.val() == 'other') {
+                          $custom_other_amount.show().append('<div class="input-group"><span class="input-group-addon">$</span> <input id="input_other_amount" type="text" name="amount" class="form-control" value="100"/></div>');
+                        }
+                        else{
+                          $custom_other_amount.children( ".input-group" ).remove();
+                          $custom_other_amount.hide();
+                        }
+                    });
+
+                    //toggle donation_type_choice
+                    var $donation_type_choice = $donation_form.find("#donation_type_choice");
+                    $donation_type_choice.hide();
+                    $("input[name='payment_type']").change(function() {
+                        if (this.value == 'recurring') {
+                            $donation_type_choice.show();
+                        }
+                        else {
+                            $donation_type_choice.hide();
+                        }
+                    });
+
+
+                    // submit form on click
+                    $donation_form.on('submit', function(e){
+                        //$( "#popup_paypal_donate_form-onetime" ).submit();
+                        var item_name = $donation_form.find("select[name='item_name'] option:selected").val();
+                        var currency_code = $donation_form.find("select[name='currency_code'] option:selected").val();
+                        var amount = $donation_form.find("[name='amount']:checked").val();
+                        var t3 = $donation_form.find("input[name='t3']:checked").val();
+
+                        if ( amount == 'other') {
+                          amount = $donation_form.find("#input_other_amount").val();
+                          console.log(amount);
+                        }
+
+                        // submit proper form now
+                        if ( $("input[name='payment_type']:checked", $donation_form).val() == 'recurring' ) {
+                            var recurring_form = $('#popup_paypal_donate_form-recurring');
+
+                            recurring_form.find("input[name='item_name']").val(item_name);
+                            recurring_form.find("input[name='currency_code']").val(currency_code);
+                            recurring_form.find("input[name='a3']").val(amount);
+                            recurring_form.find("input[name='t3']").val(t3);
+
+                            recurring_form.find("input[type='submit']").trigger('click');
+
+                        } else if ( $("input[name='payment_type']:checked", $donation_form).val() == 'one_time' ) {
+                            var onetime_form = $('#popup_paypal_donate_form-onetime');
+
+                            onetime_form.find("input[name='item_name']").val(item_name);
+                            onetime_form.find("input[name='currency_code']").val(currency_code);
+                            onetime_form.find("input[name='amount']").val(amount);
+
+                            onetime_form.find("input[type='submit']").trigger('click');
+                        }
+                        return false;
+                    });
+
+                  });
+                </script>
+
+                <!-- Paypal Onetime Form -->
+                <form id="popup_paypal_donate_form-onetime" class="hidden" action="https://www.paypal.com/br/cgi-bin/webscr" target="_blank" method="post">
+                  <input type="hidden" name="cmd" value="_donations">
+                  <input type="hidden" name="business" value="accounts@thememascot.com">
+
+                  <input type="hidden" name="item_name" value="Arrecadação de Fundos"> <!-- updated dynamically -->
+                  <input type="hidden" name="currency_code" value="BRL"> <!-- updated dynamically -->
+                  <input type="hidden" name="amount" value="20"> <!-- updated dynamically -->
+
+                  <input type="hidden" name="no_shipping" value="1">
+                  <input type="hidden" name="cn" value="Comentários...">
+                  <input type="hidden" name="tax" value="0">
+                  <input type="hidden" name="lc" value="BR">
+                  <input type="hidden" name="bn" value="PP-DonationsBF">
+                  <input type="hidden" name="return" value="http://www.yoursite.com/thankyou.html">
+                  <input type="hidden" name="cancel_return" value="http://www.yoursite.com/paymentcancel.html">
+                  <input type="hidden" name="notify_url" value="http://www.yoursite.com/notifypayment.php">
+                  <input type="submit" name="submit">
+                </form>
+                
+                <!-- Paypal Recurring Form -->
+                <form id="popup_paypal_donate_form-recurring" class="hidden" action="https://www.paypal.com/br/cgi-bin/webscr" target="_blank" method="post">
+                  <input type="hidden" name="cmd" value="_xclick-subscriptions">
+                  <input type="hidden" name="business" value="accounts@thememascot.com">
+
+                  <input type="hidden" name="item_name" value="Arrecadação de Fundos"> <!-- updated dynamically -->
+                  <input type="hidden" name="currency_code" value="BRL"> <!-- updated dynamically -->
+                  <input type="hidden" name="a3" value="20"> <!-- updated dynamically -->
+                  <input type="hidden" name="t3" value="D"> <!-- updated dynamically -->
+
+
+                  <input type="hidden" name="p3" value="1">
+                  <input type="hidden" name="rm" value="2">
+                  <input type="hidden" name="src" value="1">
+                  <input type="hidden" name="sra" value="1">
+                  <input type="hidden" name="no_shipping" value="0">
+                  <input type="hidden" name="no_note" value="1">                     
+                  <input type="hidden" name="lc" value="BR">
+                  <input type="hidden" name="bn" value="PP-DonationsBF">
+                  <input type="hidden" name="return" value="http://www.yoursite.com/thankyou.html">
+                  <input type="hidden" name="cancel_return" value="http://www.yoursite.com/paymentcancel.html">
+                  <input type="hidden" name="notify_url" value="http://www.yoursite.com/notifypayment.php">
+                  <input type="submit" name="submit">
+                </form>
+                <!-- ===== END: Paypal Both Onetime/Recurring Form ===== -->
+
+
+                
+              
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <h3 class="mt-0 line-bottom">Palavras de Sabedoria</h3>
+              <div class="testimonial style1 owl-carousel-1col owl-nav-top">
+                <div class="item">
+                  <div class="comment bg-theme-colored">
+                    <p>
+                        Há quem dê generosamente,
+                        <br/>
+                        e vê aumentar suas riquezas;
+                        <br/>
+                        outros retêm o que deveriam dar,
+                        <br/>
+                        e caem na pobreza.
+                        <br/>
+                        O generoso prosperará;
+                        <br/>
+                        quem dá alívio aos outros,
+                        <br/>
+                        alívio receberá. 
+                    </p>
+                  </div>
+                  <div class="content mt-20">
+                    <div class="thumb pull-right">
+                      <img class="img-circle" alt="" src="images/_doacoes/A_Biblia_Sagrada.jpg">
+                    </div>
+                    <div class="patient-details text-right pull-right mr-20 mt-10">
+                      <h5 class="author text-theme-colored">Provérbios 11:24-25</h5>
+                      <h6 class="title">Bíblia Sagrada</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="comment bg-theme-colored">
+                    <p>
+                        O que fazemos por nós mesmos morre conosco.
+                        <br/>
+                        O que fazemos pelos outros permanece e é imortal.
+                    </p>
+                  </div>
+                  <div class="content mt-20">
+                    <div class="thumb pull-right">
+                      <img class="img-circle" alt="" src="images/_doacoes/Albert_Pike.jpg">
+                    </div>
+                    <div class="patient-details text-right pull-right mr-20 mt-10">
+                      <h5 class="author text-theme-colored">Albert Pike (1809 – 1891)</h5>
+                      <h6 class="title">Advogado, militar e escritor </h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="comment bg-theme-colored">
+                    <p>É a intenção, e não a doação, que faz o doador.</p>
+                  </div>
+                  <div class="content mt-20">
+                    <div class="thumb pull-right">
+                      <img class="img-circle" alt="" src="images/_doacoes/Gotthold_Leipzig.jpg">
+                    </div>
+                    <div class="patient-details text-right pull-right mr-20 mt-10">
+                      <h5 class="author text-theme-colored">Gotthold Leipzig (1729 - 1781)</h5>
+                      <h6 class="title">Poeta, dramaturgo, filósofo e crítico de arte</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+  </div>
+  <!-- end main-content -->

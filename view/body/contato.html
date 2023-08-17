@@ -1,0 +1,134 @@
+
+<!-- Start main-content -->
+  <div class="main-content">
+
+    <!-- Section: inner-header -->
+    <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-stellar-background-ratio="0.5" data-bg-img="images/_contato/parallax.jpg">
+      <div class="container pt-100 pb-50">
+        <!-- Section Content -->
+        <div class="section-content pt-100">
+          <div class="row"> 
+            <div class="col-md-12">
+              <h3 class="title text-white">Contato</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Divider: Contact -->
+    <section class="divider">
+      <div class="container">
+        <div class="row pt-30">
+          <div class="col-md-5">
+            <h3 class="line-bottom mt-0 mb-30">Formulário de contato</h3>
+            
+            <!-- Contact Form -->
+            <form action="http://corpdip.pe.hu/contato/auto_envio.php" method="post" name="formulario_contato">
+                
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label>Nome <small>*</small></label>
+                    <input name="Nome" class="form-control" type="text" placeholder="Nome" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Email <small>*</small></label>
+                    <input name="E-mail" class="form-control required email" type="email" placeholder="Email" required>
+                  </div>
+                </div>
+              <!--</div>-->
+                
+              <!--<div class="row">-->
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Telefone</label>
+                    <input name="Telefone" class="form-control" type="text" placeholder="Telefone">
+                  </div>
+                </div>
+              </div>
+                
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label>Assunto <small>*</small></label>
+                    <input name="Assunto" class="form-control required" type="text" placeholder="Assunto" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Mensagem</label>
+                <textarea name="Mensagem" class="form-control required" rows="5" placeholder="Mensagem" required></textarea>
+              </div>
+                
+              <div class="form-group">
+                <!--<input name="form_botcheck" class="form-control" type="hidden" value="" />-->
+                <button type="submit" class="btn btn-dark btn-theme-colored btn-flat mr-5" data-loading-text="Aguarde...">Enviar</button>
+                <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Limpar</button>
+              </div>
+                
+              <input type="hidden" name="site" value="http://umades.com.br">
+              <input type="hidden" name="email" value="contato@umades.com.br"> <!--contato@umades.com.br-->
+            </form>
+          </div>
+          <div class="col-md-7">
+            <div class="row">
+              <h3 class="line-bottom mt-0 mb-50 ml-15">Nossa Localização</h3>
+              <div class="col-md-12">                
+                <!--<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque</p>-->
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-map-2 text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h5 class="mt-0">Endereço</h5>
+                    <p>Rua Pastor João Pedro da Silva nº47<br/>Ataíde - Vila Velha - ES<br/>CEP: 29119-024</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-call text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h5 class="mt-0">Telefone</h5>
+                      <p><a href="tel:+5527997361314">27 997 361 314</a></p>
+                      <p><a href="tel:+55279999706638">27 999 706 638</a></p>
+                      <p><a href="tel:+5527988555677">27 988 555 677</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-mail text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h5 class="mt-0">E-mail</h5>
+                    <p><a href="mailto:contato@umades.com.br">contato@umades.com.br</a></p>
+                  </div>
+                </div>
+              </div>
+              <!--<div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="fa fa-skype text-theme-colored"></i></a>
+                  <div class="media-body">
+                    <h5 class="mt-0">Make a Video Call</h5>
+                    <p>ThemeMascotSkype</p>
+                  </div>
+                </div>
+              </div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Divider: Google Map -->
+    <section>
+      <div class="container-fluid pt-0 pb-0">
+        <div class="row">
+            <div id="googleMap" style="width:100%;height:400px;"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- end main-content -->
